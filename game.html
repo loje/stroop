@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title>颜色混淆</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/buttons.css">
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<style type="text/css">
+			#content {
+				padding-left: 0px;
+				padding-right: 0px;
+				width: 100%;
+				height: 3px;
+				margin: auto;
+				background: #000;
+				box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.25);
+				border-radius: 2px;
+			}
+			.fullwidth .expand {
+				width: 100%;
+				height: 1px;
+				margin: 1px 0;
+				background: #2187e7;
+				border-radius: 2px;
+				box-shadow: 0px 0px 10px 2px rgba(0,198,255,0.7);
+				-moz-animation: fullexpand 3s ease-out;
+				-webkit-animation: fullexpand 3s ease-out;
+			}
+			@-moz-keyframes fullexpand {
+				0% {
+					width:0px;
+				}
+				100% {
+					width:100%;
+				}
+			}
+			@-webkit-keyframes fullexpand {
+				0% {
+					width:0px;
+				}
+				100% {
+					width:100%;
+				}
+			}
+		</style>
+		<script type="text/javascript">
+			// $(document).ready(function() {
+			// 	$('#content').removeClass('fullwidth');     
+			// 		$('.triggerFull').click(function(){
+			// 			$('#content').removeClass('fullwidth').delay(10).queue(function(next){
+			// 				$(this).addClass('fullwidth');
+			// 				next();
+			// 			});
+			// 		return false;
+			// 	});
+			// });
+			
+		</script>
+	</head>
+
+	<body>
+		
+		<div class="container bwidth">
+			
+			<!-- 第一题 -->
+			<div id="pager1" class="onepager">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#cc0033;">黄色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#FFCC33;">蓝色</div>
+				</div>
+				<div class="row chioce">
+					<button id="yes1" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="no1" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第二题 -->
+			<div id="pager2" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#FFCC33;">绿色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#009933;">红色</div>
+				</div>
+				<div class="row chioce">
+					<button id="yes2" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="no2" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第三题 -->
+			<div id="pager3" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#cc0033;">红色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#0099FF;">绿色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no3" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes3" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第四题 -->
+			<div id="pager4" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#0099FF;">黄色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#009933;">绿色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no4" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes4" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第五题 -->
+			<div id="pager5" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#FFCC33;">蓝色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#0099ff;">红色</div>
+				</div>
+				<div class="row chioce">
+					<button id="yes5" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="no5" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第六题 -->
+			<div id="pager6" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#0099ff;">蓝色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#ffcc33;">绿色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no6" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes6" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第七题 -->
+			<div id="pager7" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#FFCC33;">红色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#cc0033;">绿色</div>
+				</div>
+				<div class="row chioce">
+					<button id="yes7" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="no7" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第八题 -->
+			<div id="pager8" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#009933;">绿色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#0099ff;">蓝色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no8" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes8" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第九题 -->
+			<div id="pager9" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#0099ff;">红色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#009933;">蓝色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no9" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes9" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第十题 -->
+			<div id="pager10" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#cc0033;">蓝色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#0099ff;">红色</div>
+				</div>
+				<div class="row chioce">
+					<button id="yes10" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="no10" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第十一题 -->
+			<div id="pager11" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#FFCC33;">黄色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#0099ff;">红色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no11" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes11" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第十二题 -->
+			<div id="pager12" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#cc0033;">绿色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#0099ff;">黄色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no12" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes12" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第十三题 -->
+			<div id="pager13" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#FFCC33;">蓝色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#009933;">黄色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no13" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes13" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第十四题 -->
+			<div id="pager14" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#FFCC33;">红色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#cc0033;">黄色</div>
+				</div>
+				<div class="row chioce">
+					<button id="yes14" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="no14" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 第十五题 -->
+			<div id="pager15" class="onepager" style="display:none;">
+				<div class="row color">
+					<div class="col-xs-12 crl clr-1" style="color:#0099ff;">绿色</div>
+					<div id="content" class="col-xs-12 fullwidth">
+						<div class="expand"></div>
+					</div>
+					<div class="col-xs-12 crl clr-2" style="color:#ffcc33;">蓝色</div>
+				</div>
+				<div class="row chioce">
+					<button id="no15" class="button button-3d button-primary button-rounded">一致</button>
+					<button id="yes15" class="button button-3d button-primary button-rounded">不一致</button>
+				</div>
+			</div>
+
+			<!-- 结果页面 -->
+			<div id="pager16" class="onepager" style="display:none;">
+				<div class="share" id="sharebox" style="display:none;">
+					<img src="images/share.png">
+				</div>
+				<div class="follow" id="followbox" style="display:none;">
+					<img src="images/qrcode.jpg">
+					<p>长按二维码关注微信公众号</p>
+					<p><a id="back" class="btn">back</a></p>
+				</div>
+
+				<input class="btn btn-default" type="hidden" id="num" value="0">
+
+				<div id="card" class="container card">
+					<div id="result" class="result">
+						<div class="tou">
+							<img src="images/tou.png">
+						</div>
+						<span id="tips3"></span>
+						<span id="tips1">
+							答对了0道题……没关系！人总是有第一次的…你旁边没人在看吧？
+						</span>
+						<span id="tips2">
+							明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。 
+						</span>
+						<p id="tips4">—— 莎士比亚</p>
+						
+					</div>
+					<!-- <img id="resultimg" class="result-bg" src="images/result_bg.png"> -->
+				</div>
+				<div class="resultbtn" id="resultbtn">
+					<button id="share" class="button button-3d button-primary button-rounded" href="#">分享结果</button>
+					<button id="follow" class="button button-3d button-primary button-rounded" href="#">关注我们</button>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+			　　//alert($(window).height()); //浏览器当前窗口可视区域高度
+			　　//alert($(document).height()); //浏览器当前窗口文档的高度
+
+			　　//alert($(document.body).height());//浏览器当前窗口文档body的高度
+			　　//alert($(document.body).outerHeight(true));//浏览器当前窗口文档body的总高度 包括border padding margin
+
+			　　//alert($(window).width()); //浏览器当前窗口可视区域宽度
+			　　//alert($(document).width());//浏览器当前窗口文档对象宽度
+
+			　　//alert($(document.body).width());//浏览器当前窗口文档body的宽度
+			　　//alert($(document.body).outerWidth(true));//浏览器当前窗口文档body的总宽度 包括border padding margin
+
+				//1
+
+
+				var n = $("#num").val();
+				var num = 0;
+
+				var p = 1;
+				var y = 1;
+				$("#pager1").height($(window).height());
+				$("#pager2").height($(window).height());
+				$("#pager3").height($(window).height());
+				$("#pager4").height($(window).height());
+				$("#pager5").height($(window).height());
+				$("#pager6").height($(window).height());
+				$("#pager7").height($(window).height());
+				$("#pager8").height($(window).height());
+				$("#pager9").height($(window).height());
+				$("#pager10").height($(window).height());
+				$("#pager11").height($(window).height());
+				$("#pager12").height($(window).height());
+				$("#pager13").height($(window).height());
+				$("#pager14").height($(window).height());
+				$("#pager15").height($(window).height());
+				$("#pager16").height($(window).height());
+
+				function g(id,context){
+				    context=context||document;
+				    return context.getElementById(id);
+				}
+				function gT(tagName,context){
+				    context=context||document;
+				    return context.getElementsByTagName(tagName);
+				}
+				function move(index,delay){
+				    index=index||1;
+				    delay=delay||3000;
+				    var dom=g("pager"+(index++)),ndom=g("pager"+index),timer,btn;
+				    timer=setTimeout(function(){
+				        moveUi(dom,ndom);
+						if(index<16){
+							move(index,delay)
+						}
+				    },delay);
+
+					
+
+				    btn=gT("button",dom)[0];
+				    atn=gT("button",dom)[1];
+				    btn&&(btn.onclick=function(){
+				        clearTimeout(timer);
+
+				        timer=null;
+				        moveUi(dom,ndom);
+						if(index<16){
+							move(index,delay)
+						}
+				    })
+				    atn&&(atn.onclick=function(){
+				        clearTimeout(timer);
+
+				        timer=null;
+				        moveUi(dom,ndom);
+						if(index<16){
+							move(index,delay)
+						}
+				    })
+				}
+				function moveUi(dom,ndom){
+					setTimeout(function(){
+					    dom&&(dom.style.display="none");
+					    ndom&&(ndom.style.display="block");
+					},50)
+				}
+
+				move();
+
+				$("#yes1").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes2").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes3").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes4").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes5").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes6").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes7").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes8").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes9").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes10").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes11").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes12").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes13").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes14").click(function(){
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+				$("#yes15").click(function(){
+					$("#pager16").attr({"style":"display:block"});
+					$("#pager16").height($(window).height());
+					num = parseInt(num)+1;
+					$("#num").val(num);
+					console.log(num);
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})	
+				$("#no15").click(function(){
+					$("#pager16").attr({"style":"display:block"});
+					$("#pager16").height($(window).height());
+
+					if(num >= 0 && num <= 5){
+						$("#tips1").html("答对了" + num + "道题……没关系！人总是有第一次的…你旁边没人在看吧？");
+						$("#tips2").html("明智的人决不坐下来为失败而哀号，他们一定乐观地寻找办法来加以挽救。");
+						$("#tips4").html("—— 莎士比亚");
+						$("#tips3").html("<img src='images/star.png' />");
+					}else if(num > 5 && num <= 10){
+						$("#tips1").html("才答对了" + num + "题！？少年郎平时生活不要太放纵了，要多动动脑哦~");
+						$("#tips2").html("青年时代太放纵就会失去心灵的滋润，太节制就会变成死脑筋。");
+						$("#tips4").html("—— 圣堤布福");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 11 && num <= 14){
+						$("#tips1").html("哎呦喂！你答对了" + num + "题，这是要炸天的节奏啊！");
+						$("#tips2").html("当你希望成功，当以恒心为良友。");
+						$("#tips4").html("—— 爱迪生");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}else if(num > 14){
+						$("#tips1").html("答对" + num + "题啦！！少年你终将成王啊！！！不要问我为什么跪着呐喊！！！");
+						$("#tips2").html("人的思想是了不起的，只要专注于某一项事业，就一定会做出使自己感到吃惊的成绩来。");
+						$("#tips4").html("—— 马克·吐温");
+						$("#tips3").html("<img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' /><img src='images/star.png' />");
+					}
+				})
+
+				$("#share").click(function(){
+					$("#sharebox").removeAttr("style");
+					$("#card").attr("style","filter: url(blur.svg#blur);-webkit-filter: blur(6px);-moz-filter: blur(6px);-ms-filter: blur(6px);filter: blur(6px);");
+					$("#resultbtn").attr("style","filter: url(blur.svg#blur);-webkit-filter: blur(6px);-moz-filter: blur(6px);-ms-filter: blur(6px);filter: blur(6px);");
+				})
+				$("#follow").click(function(){
+					$("#followbox").removeAttr("style");
+					$("#card").attr("style","filter: url(blur.svg#blur);-webkit-filter: blur(6px);-moz-filter: blur(6px);-ms-filter: blur(6px);filter: blur(6px);");
+					$("#resultbtn").attr("style","filter: url(blur.svg#blur);-webkit-filter: blur(6px);-moz-filter: blur(6px);-ms-filter: blur(6px);filter: blur(6px);");
+				})
+
+				$("#sharebox").click(function(){
+					$("#sharebox").attr("style","display:none;");
+					$("#card").removeAttr("style");
+					$("#resultbtn").removeAttr("style");
+				})
+				$("#back").click(function(){
+					$("#followbox").attr("style","display:none;");
+					$("#card").removeAttr("style");
+					$("#resultbtn").removeAttr("style");
+				})
+			})
+		</script>
+	</body>
+</html>
